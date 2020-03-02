@@ -74,22 +74,22 @@ class CampaignController extends Controller
     	$campaign = Campaign::find($r->campaign_id);
     	$server = Server::find($r->servers);
     	$emails = Emaillist::whereIn('listing_id',$r->mailList)->where('status',1)->get();
-    	if($server){
-            if($server->driver == 'smtp'){
-            	Config::set('mail.driver', $server->driver); 
-            	Config::set('mail.host', $server->hostname);
-            	Config::set('mail.port', $server->port);
-            	Config::set('mail.username', $server->username);
-            	Config::set('mail.password', $server->password);
-            	Config::set('mail.encryption', $server->encryption);
-            	Config::set('mail.from.name', $r->name);
-            	Config::set('mail.from.address', $r->from);
-            }
-            if($server->driver == 'ses'){
-                Config::set('services.ses.key', $server->driver); 
-                Config::set('services.ses.secret', $server->driver); 
-                Config::set('services.ses.region', $server->driver); 
-                }
+    	// if($server){
+     //        if($server->driver == 'smtp'){
+     //        	Config::set('mail.driver', $server->driver); 
+     //        	Config::set('mail.host', $server->hostname);
+     //        	Config::set('mail.port', $server->port);
+     //        	Config::set('mail.username', $server->username);
+     //        	Config::set('mail.password', $server->password);
+     //        	Config::set('mail.encryption', $server->encryption);
+     //        	Config::set('mail.from.name', $r->name);
+     //        	Config::set('mail.from.address', $r->from);
+     //        }
+     //        if($server->driver == 'ses'){
+                Config::set('services.ses.key', 'AKIAVC2JRNNXR73BBNDJ'); 
+                Config::set('services.ses.secret', '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'); 
+                Config::set('services.ses.region', 'us-east-1'); 
+                //}
         }
 
         $res = dispatch(new SendEmailJob($emails,$campaign,$r->mailList));

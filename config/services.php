@@ -24,12 +24,11 @@ return [
         'token' => env('POSTMARK_TOKEN'),
     ],
 
-    'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
-        'secret' => env('AWS_SECRET_ACCESS_KEY'),
-        'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
-    ],
-
+   'ses' => [
+    'key' => 'AKIAVC2JRNNXR73BBNDJ',
+    'secret' => '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',
+    'region' => 'us-east-1',
+],
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET'),
     ],

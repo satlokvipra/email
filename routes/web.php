@@ -33,7 +33,16 @@ Route::get('markasunread', function () {
 
 
 
-
+Route::get('aws', function () {
+     $s3 = AWS::createClient('ses');
+     dd($s3->listVerifiedEmailAddresses());
+  $result = $s3->verifyEmailAddress(array(
+    // EmailAddress is required
+    'EmailAddress' => 'satlok.vipra@gmail.com',
+));
+ 
+  dd($result);
+})->name('aws');
 Auth::routes();
 
 //chat
