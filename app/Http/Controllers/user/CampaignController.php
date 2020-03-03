@@ -90,7 +90,7 @@ class CampaignController extends Controller
                 Config::set('services.ses.secret', 'q+AkPfa+b9K+H1n12nFsxh8R9PehtK9ox9ZBr7RV'); 
                 Config::set('services.ses.region', 'us-east-1'); 
                 //}
-        }
+        // }
 
         $res = dispatch(new SendEmailJob($emails,$campaign,$r->mailList));
         // $res = Emailrespnce::where('campaign_id',$campaign->id)->last();
