@@ -35,10 +35,11 @@ Route::get('markasunread', function () {
 
 Route::get('aws', function () {
      $s3 = AWS::createClient('ses');
-     dd($s3->listVerifiedEmailAddresses());
+     //$d = $s3->listVerifiedEmailAddresses();
+     //dd($s3);
   $result = $s3->verifyEmailAddress(array(
     // EmailAddress is required
-    'EmailAddress' => 'satlok.vipra@gmail.com',
+    'EmailAddress' => 'satlok.gupta@gmail.com',
 ));
  
   dd($result);
